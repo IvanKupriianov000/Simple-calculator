@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Main extends JFrame{
+public class Main {
     public static void main(String[] args){
         new Main();
 
@@ -30,7 +30,6 @@ public class Main extends JFrame{
 
         //numbers
         JPanel numbersPanel = new JPanel(new GridLayout(4,4,10,10));
-        frame.add(numbersPanel,BorderLayout.WEST);
         JButton[] numbersButtons = new JButton[10];
         for(int i = 0; i < numbersButtons.length;i++) {
             String number = String.valueOf(i);
@@ -54,14 +53,14 @@ public class Main extends JFrame{
         addition.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!isContainingOperation(display.getText())) display.setText(display.getText() + addition.getText());
+                if(!isContainingOperation(display.getText().substring(1))) display.setText(display.getText() + addition.getText());
             }
         });
         JButton subtraction = new JButton("-");
         subtraction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!isContainingOperation(display.getText())) display.setText(display.getText() + subtraction.getText());
+                if(!isContainingOperation(display.getText().substring(1))) display.setText(display.getText() + subtraction.getText());
             }
         });
 
@@ -69,14 +68,14 @@ public class Main extends JFrame{
         multiplication.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!isContainingOperation(display.getText())) display.setText(display.getText() + multiplication.getText());
+                if(!isContainingOperation(display.getText().substring(1))) display.setText(display.getText() + multiplication.getText());
             }
         });
         JButton division = new JButton("/");
         division.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!isContainingOperation(display.getText())) display.setText(display.getText() + division.getText());
+                if(!isContainingOperation(display.getText().substring(1))) display.setText(display.getText() + division.getText());
             }
         });
 
